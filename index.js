@@ -22,8 +22,9 @@ const Customer = require('./lib/customer'),
   UD15 = require('./lib/ud15'),
   JobProdSearch = require('./lib/jobProdSearch'),
   Part = require('./lib/part'),
-  JobClosing = require('./lib/jobClosing');
-ServiceCall = require('./lib/serviceCall');
+  JobClosing = require('./lib/jobClosing'),
+  IssueReturn = require('./lib/issueReturn'),
+  ServiceCall = require('./lib/serviceCall');
 
 function Epicor({serverUrl, username, password, company, strictSSL}) {
   const connection = new Connection({
@@ -99,6 +100,7 @@ function Epicor({serverUrl, username, password, company, strictSSL}) {
   this.Part = new Part(connection);
   this.JobClosing = new JobClosing(connection);
   this.ServiceCall = new ServiceCall(connection);
+  this.IssueReturn = new IssueReturn(connection);
 }
 
 module.exports = Epicor;
